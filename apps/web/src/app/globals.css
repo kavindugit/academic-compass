@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-heading);
+
+  --color-background: hsl(40 30% 98%); /* Warm White */
+  --color-foreground: hsl(25 40% 10%); /* Deep Warm Brown-Black */
+  
+  --color-card: hsl(0 0% 100%); /* Pure White */
+  --color-card-foreground: hsl(25 40% 10%);
+  
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(25 40% 10%);
+  
+  --color-primary: hsl(38 95% 50%); /* Rich Amber */
+  --color-primary-foreground: hsl(25 50% 8%);
+  
+  --color-secondary: hsl(40 30% 95%); /* Warm Light */
+  --color-secondary-foreground: hsl(25 40% 10%);
+  
+  --color-muted: hsl(40 25% 95%);
+  --color-muted-foreground: hsl(30 20% 45%); /* Warm Muted */
+  
+  --color-accent: hsl(22 90% 52%); /* Deep Orange */
+  --color-accent-foreground: hsl(0 0% 100%);
+  
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(40 30% 98%);
+  
+  --color-border: hsl(38 30% 88%); /* Warm Border */
+  --color-input: hsl(38 30% 88%);
+  --color-ring: hsl(38 95% 55%);
+  
+  --radius-lg: 0.75rem;
+  --radius-md: calc(0.75rem - 2px);
+  --radius-sm: calc(0.75rem - 4px);
+}
+
+@layer base {
+  *, ::before, ::after {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans), sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), sans-serif;
+    letter-spacing: -0.025em;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-background/60 backdrop-blur-md border border-border shadow-md;
+  }
+  
+  .glass-card {
+    @apply bg-card/70 backdrop-blur-xl border border-border shadow-lg transition-all duration-300 rounded-2xl;
+  }
+  
+  .glass-card-hover {
+    @apply bg-card/70 backdrop-blur-xl border border-border shadow-lg transition-all duration-300 rounded-2xl hover:border-primary/40 hover:shadow-[0_0_30px_rgba(251,191,36,0.18)] hover:-translate-y-1;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+  
+  .text-gradient-warm {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500;
+  }
+
+  .input-styled {
+    @apply flex w-full rounded-xl border border-input bg-background/60 px-4 py-3 text-sm ring-offset-background placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-all;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl px-6 py-3 shadow-sm transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary/80 text-secondary-foreground font-semibold rounded-xl px-6 py-3 shadow-sm transition-all duration-200 border border-border;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out both;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-ticker {
+    animation: ticker 28s linear infinite;
+    will-change: transform;
+  }
+
+  .ticker-track {
+    display: flex;
+    width: max-content;
+  }
+
+  .ticker-track:hover {
+    animation-play-state: paused;
+  }
+
+  .stat-number {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  }
+
+  .service-card-number {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--color-primary);
+    opacity: 0.5;
+  }
+
+  /* Auth Layout Utilities */
+  .auth-container {
+    @apply min-h-screen w-full flex bg-background;
+  }
+
+  .auth-brand-panel {
+    @apply hidden lg:flex flex-1 flex-col justify-between p-12 relative overflow-hidden bg-foreground text-background;
+  }
+
+  .auth-form-panel {
+    @apply flex-1 flex flex-col justify-center items-center p-4 sm:p-12 lg:p-24 relative z-10;
+  }
+
+  .input-icon-wrapper {
+    @apply relative flex items-center w-full;
+  }
+
+  .input-with-icon {
+    @apply pl-11;
+  }
+  
+  .auth-icon {
+    @apply absolute left-4 text-muted-foreground/60 w-5 h-5 pointer-events-none;
+  }
+
+  .password-toggle {
+    @apply absolute right-4 text-muted-foreground hover:text-foreground transition-colors p-1 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes shimmerBorder {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 20%,
+    var(--color-primary) 40%,
+    var(--color-primary) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes meshRotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    color-mix(in srgb, var(--color-primary) 15%, transparent) 0deg,
+    color-mix(in srgb, var(--color-accent) 10%, transparent) 90deg,
+    transparent 180deg,
+    color-mix(in srgb, var(--color-primary) 5%, transparent) 270deg,
+    color-mix(in srgb, var(--color-primary) 15%, transparent) 360deg
+  );
+  animation: meshRotate 20s linear infinite;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* For staggered animation in forms */
+.stagger-1 { animation-delay: 100ms; }
+.stagger-2 { animation-delay: 200ms; }
+.stagger-3 { animation-delay: 300ms; }
+.stagger-4 { animation-delay: 400ms; }
+.stagger-5 { animation-delay: 500ms; }
