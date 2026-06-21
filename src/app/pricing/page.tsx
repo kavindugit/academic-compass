@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PLANS, formatCurrency } from "@pathwaylk/shared";
+import { PLANS, formatCurrency } from "@/shared";
 
 export default function Pricing() {
 

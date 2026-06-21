@@ -347,6 +347,10 @@ export default function OurServicePage() {
               a: "No, we do not teach the syllabus. We cover ALL subjects by ensuring your child actually studies what they learned at school or tuition. Whether they need to practice Mathematics or memorize Science notes, our Guide sits beside them to ensure they stay completely focused on the task.",
             },
             {
+              q: "How long is a typical session?",
+              a: "A typical session lasts for 2 to 3 hours, depending on the child's grade level and the chosen plan. We ensure the time is used effectively without burning them out.",
+            },
+            {
               q: "How many days per week does the Study Guide visit?",
               a: "That depends on the plan you choose. We offer different schedules to fit your needs and budget. You can discuss this when you register.",
             },
@@ -394,19 +398,22 @@ export default function OurServicePage() {
               Ready To Get Started?
             </h2>
             <p className="text-base text-muted-foreground font-medium mb-8 max-w-lg mx-auto">
-              Register your child today. We'll call you, understand your needs,
+              Message us today. We'll chat about your needs,
               assign a Study Guide, and set everything up. It's that simple.
             </p>
-            <Link
-              href="/register"
+            <a
+              href="https://wa.me/+94704401729?text=Hi%20PathwayLK,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+              target="_blank" 
+              rel="noopener noreferrer"
               id="our-service-cta-btn"
               className="btn-primary text-lg px-10 py-4 inline-flex justify-center items-center gap-2 shadow-lg w-full sm:w-auto"
               style={{
                 boxShadow: "0 4px 24px hsl(38 95% 50% / 0.35)",
               }}
             >
-              Register Your Child Now <span>→</span>
-            </Link>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              Book via WhatsApp
+            </a>
           </div>
         </div>
       </section>
