@@ -77,8 +77,8 @@ export default function Home() {
           <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "hsl(243 75% 60%)" }}>
             My child is in →
           </p>
-          {/* 3 Premium interactive cards - always horizontal even on mobile */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-3xl mx-auto">
+          {/* 3 Premium interactive cards - stacked on mobile, row on tablet/desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto px-4 sm:px-0">
             {[
               { key: "grade69", label: "Grade 6-9", icon: "🏫", color: "hsl(243 75% 60%)", price: "10,000 / week", href: "/our-service/how-we-help#grade69" },
               { key: "ol", label: "GCE O/L", icon: "📘", color: "hsl(38 95% 45%)", price: "15,000 / week", href: "/our-service/how-we-help#ol" },

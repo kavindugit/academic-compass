@@ -40,9 +40,9 @@ export default function HowWeHelpPage() {
       <HowWeHelpTabs />
 
       {/* ── CTA ── */}
-      <section className="w-full relative z-10 animate-fade-in text-center px-4" style={{ animationDelay: "0.55s" }}>
+      <section className="w-full relative z-10 animate-fade-in text-center px-2 sm:px-4" style={{ animationDelay: "0.55s" }}>
         <div
-          className="relative overflow-hidden rounded-3xl p-8 md:p-16 max-w-4xl mx-auto"
+          className="relative overflow-hidden rounded-3xl p-6 sm:p-8 md:p-16 max-w-4xl mx-auto"
           style={{
             background:
               "linear-gradient(135deg, hsl(243 75% 60% / 0.10) 0%, hsl(38 95% 50% / 0.08) 100%)",
