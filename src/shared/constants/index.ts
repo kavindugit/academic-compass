@@ -9,7 +9,7 @@ export const PLANS = [
       'Paper Practice (past papers & term tests)',
       'Recap Lessons after school/tuition',
       'Study Assistance & instant doubt clearing',
-      'Session report after every visit',
+      'Post-session parent discussion',
       'Weekly progress update',
     ]
   },
@@ -23,7 +23,7 @@ export const PLANS = [
       'Exam-condition Paper Practice',
       'Recap Lessons after tuition',
       'Study Assistance & instant doubt clearing',
-      'Session report after every visit',
+      'Post-session parent discussion',
       'Weekly progress update',
     ]
   },
@@ -37,7 +37,7 @@ export const PLANS = [
       'Dedicated full-session focus enforcement',
       'Strategic daily study planning',
       'Motivation & accountability coaching',
-      'Session report after every visit',
+      'Post-session parent discussion',
       'Weekly progress update',
     ]
   }

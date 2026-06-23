@@ -166,7 +166,7 @@ export default function Pricing() {
           {[
             { icon: "🏠", label: "We come to your home" },
             { icon: "👤", label: "Same guide every session" },
-            { icon: "📋", label: "Report after every visit" },
+            { icon: "💬", label: "Discuss after every visit" },
             { icon: "📅", label: "Weekly progress review" },
           ].map((t, i) => (
             <div key={i} className="p-4 rounded-2xl border bg-background/60 flex flex-col items-center gap-2" style={{ borderColor: "hsl(38 30% 88%)" }}>
@@ -199,7 +199,7 @@ export default function Pricing() {
               },
               {
                 q: "Are there any hidden fees?",
-                a: "No. The price you see is all-inclusive: the Study Guide's time, session reports, weekly progress reviews, and all coordination. No extra charges.",
+                a: "No. The price you see is all-inclusive: the Study Guide's time, post-session parent discussions, weekly progress reviews, and all coordination. No extra charges.",
               },
               {
                 q: "Can I pause the service if my child has school exams or holidays?",

@@ -39,6 +39,7 @@ export function Navbar() {
   }
 
   return (
+    <>
     <nav className={navClass}>
       {/* Top Row: Logo + Mobile WhatsApp */}
       <div className="flex justify-between items-center w-full md:w-auto">
@@ -85,14 +86,29 @@ export function Navbar() {
           Chat on WhatsApp
         </a>
       </div>
-
-      {/* Mobile Navigation Tabs - compact, no overflow */}
-      <div className="flex md:hidden w-full justify-between items-center mt-2 pt-2 border-t border-border/40">
-        <Link href="/" className={pathname === "/" ? activeLink : inactiveLink}>Home</Link>
-        <Link href="/our-service" className={pathname === "/our-service" ? activeLink : inactiveLink}>Service</Link>
-        <Link href="/our-service/how-we-help" className={pathname === "/our-service/how-we-help" ? activeLink : inactiveLink}>How We Help</Link>
-        <Link href="/pricing" className={pathname === "/pricing" ? activeLink : inactiveLink}>Pricing</Link>
-      </div>
     </nav>
+    
+    {/* Mobile App-Like Bottom Navigation - Rendered as a separate sibling to prevent scroll/sticky glitches */}
+    <div className="md:hidden fixed bottom-0 left-0 w-full glass border-t border-border z-[60] px-2 pb-safe pt-2 pb-2">
+      <div className="flex justify-between items-center max-w-md mx-auto">
+        <Link href="/" className={`flex flex-col items-center gap-1 p-2 ${pathname === "/" ? "text-primary" : "text-muted-foreground"}`}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span className="text-[10px] font-bold">Home</span>
+        </Link>
+        <Link href="/our-service" className={`flex flex-col items-center gap-1 p-2 ${pathname === "/our-service" ? "text-primary" : "text-muted-foreground"}`}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span className="text-[10px] font-bold">Service</span>
+        </Link>
+        <Link href="/our-service/how-we-help" className={`flex flex-col items-center gap-1 p-2 ${pathname === "/our-service/how-we-help" ? "text-primary" : "text-muted-foreground"}`}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span className="text-[10px] font-bold">How</span>
+        </Link>
+        <Link href="/pricing" className={`flex flex-col items-center gap-1 p-2 ${pathname === "/pricing" ? "text-primary" : "text-muted-foreground"}`}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span className="text-[10px] font-bold">Pricing</span>
+        </Link>
+      </div>
+    </div>
+    </>
   );
 }

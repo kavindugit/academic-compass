@@ -336,9 +336,9 @@ export default function HowWeHelpTabs() {
               },
               {
                 icon: "📊",
-                title: "Session Report After Every Visit",
+                title: "Parent Discussion After Every Visit",
                 tagline: "You always know exactly where they stand.",
-                desc: "After each visit you receive a detailed update: what subjects were covered, how long your child stayed focused, what challenges arose, and what's planned for the next session.",
+                desc: "After each visit, the Guide has a brief discussion with you covering: what subjects were studied, how long your child stayed focused, what challenges arose, and what's planned next.",
               },
             ].map((item, i) => (
               <div
@@ -388,10 +388,10 @@ export default function HowWeHelpTabs() {
     <div className="w-full max-w-5xl mx-auto flex flex-col items-center">
       
       {/* ── TABS UI ── */}
-      <div className="flex w-full overflow-x-auto hide-scrollbar sm:justify-center border-b border-border/50 mb-4 sm:mb-8 pb-px">
+      <div className="flex w-full overflow-x-auto hide-scrollbar sm:justify-center border-b border-border/50 mb-4 sm:mb-8 pb-px snap-x snap-mandatory">
         <button
           onClick={() => handleTabChange("grade69")}
-          className={`flex items-center gap-2 px-6 py-4 font-bold text-sm sm:text-base transition-colors border-b-2 whitespace-nowrap ${
+          className={`snap-center flex items-center gap-2 px-6 py-4 font-bold text-sm sm:text-base transition-colors border-b-2 whitespace-nowrap ${
             activeTab === "grade69"
               ? "border-[hsl(243,75%,60%)] text-foreground"
               : "border-transparent text-muted-foreground hover:text-foreground"
@@ -401,7 +401,7 @@ export default function HowWeHelpTabs() {
         </button>
         <button
           onClick={() => handleTabChange("ol")}
-          className={`flex items-center gap-2 px-6 py-4 font-bold text-sm sm:text-base transition-colors border-b-2 whitespace-nowrap ${
+          className={`snap-center flex items-center gap-2 px-6 py-4 font-bold text-sm sm:text-base transition-colors border-b-2 whitespace-nowrap ${
             activeTab === "ol"
               ? "border-[hsl(38,95%,45%)] text-foreground"
               : "border-transparent text-muted-foreground hover:text-foreground"
@@ -411,7 +411,7 @@ export default function HowWeHelpTabs() {
         </button>
         <button
           onClick={() => handleTabChange("al")}
-          className={`flex items-center gap-2 px-6 py-4 font-bold text-sm sm:text-base transition-colors border-b-2 whitespace-nowrap ${
+          className={`snap-center flex items-center gap-2 px-6 py-4 font-bold text-sm sm:text-base transition-colors border-b-2 whitespace-nowrap ${
             activeTab === "al"
               ? "border-[hsl(22,90%,52%)] text-foreground"
               : "border-transparent text-muted-foreground hover:text-foreground"

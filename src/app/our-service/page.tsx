@@ -48,29 +48,6 @@ export default function OurServicePage() {
             your home, sits beside your child, keeps them focused, clears their
             doubts, and makes sure not a single minute is wasted.
           </p>
-
-          {/* Clean Pill CTAs linking to How We Help tabs */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4 animate-slide-up mt-8" style={{ animationDelay: "0.15s" }}>
-            {[
-              { label: "I have a Grade 6-9 Child", href: "/our-service/how-we-help#grade69", color: "hsl(243 75% 60%)", bg: "hsl(243 75% 60% / 0.12)", border: "hsl(243 75% 60% / 0.3)" },
-              { label: "I have a O/L Child", href: "/our-service/how-we-help#ol", color: "hsl(38 95% 45%)", bg: "hsl(38 95% 50% / 0.12)", border: "hsl(38 95% 50% / 0.3)" },
-              { label: "I have a A/L Child", href: "/our-service/how-we-help#al", color: "hsl(22 90% 52%)", bg: "hsl(22 90% 52% / 0.12)", border: "hsl(22 90% 52% / 0.3)" },
-            ].map((btn, i) => (
-              <Link
-                key={i}
-                href={btn.href}
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl border font-bold text-sm sm:text-base transition-all hover:-translate-y-0.5 active:scale-95 w-full sm:w-auto"
-                style={{
-                  background: btn.bg,
-                  color: btn.color,
-                  borderColor: btn.border,
-                }}
-              >
-                <PhoneIcon size={16} />
-                {btn.label}
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -156,12 +133,12 @@ export default function OurServicePage() {
                 { title: "Top Undergraduates", desc: "Most of our guides are undergraduates from top local universities who recently excelled in O/L and A/L.", icon: "🎓" },
                 { title: "Strict Background Checks", desc: "Every guide passes a comprehensive identity and background verification before joining us.", icon: "🔍" },
                 { title: "Methodology Training", desc: "They don't just teach; they are trained in our specific 'study enforcement' methodology.", icon: "📋" },
-                { title: "Continuous Monitoring", desc: "We track their session reports and parent feedback to ensure top quality every single day.", icon: "📊" }
-              ].map((vet, i) => (
+                { title: "Continuous Monitoring", desc: "We track their daily progress and your feedback to ensure top quality every single day.", icon: "📊" }
+              ].map((item, i) => (
                 <div key={i} className="bg-background rounded-2xl p-5 border shadow-sm">
-                  <div className="text-2xl mb-2">{vet.icon}</div>
-                  <h4 className="font-bold text-foreground mb-1">{vet.title}</h4>
-                  <p className="text-xs text-muted-foreground font-medium leading-relaxed">{vet.desc}</p>
+                  <div className="text-2xl mb-2">{item.icon}</div>
+                  <h4 className="font-bold text-foreground mb-1">{item.title}</h4>
+                  <p className="text-xs text-muted-foreground font-medium leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>

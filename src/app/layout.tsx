@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | PathwayLK",
   },
   description:
-    "Sri Lanka's premium home visit study guidance service. A trained Study Guide sits with your child, enforces focus, clears doubts, and reports to you. Grade 6 to A/L.",
+    "Sri Lanka's premium home visit study guidance service. A trained Study Guide sits with your child, enforces focus, clears doubts, and discusses progress with you. Grade 6 to A/L.",
   keywords: [
     "home visit study guide",
     "tuition Sri Lanka",
@@ -70,7 +70,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} antialiased h-full overflow-x-hidden`}>
       <body className="min-h-full flex flex-col bg-background text-foreground relative overflow-x-hidden">
         <Navbar />
-        <main className="flex-1 flex flex-col items-center relative z-10">
+        <main className="flex-1 flex flex-col items-center relative z-10 pb-20 md:pb-0">
           {/* Reduced horizontal padding on mobile for breathing room */}
           <div className="w-full max-w-7xl px-3 sm:px-5 md:px-6 lg:px-8 py-4 md:py-8">
             {children}

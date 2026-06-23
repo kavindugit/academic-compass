@@ -5,10 +5,10 @@ import { useState } from "react";
 const tickerItems = [
   "We Come To Your Home",
   "We Sit With Your Child",
-  "We Report To You",
+  "Post-Session Discussion",
   "No Travel Needed",
   "A Dedicated Study Guide",
-  "Weekly Progress Reports",
+  "Daily Parent Updates",
   "Instant Doubt Clearing",
   "Grade 6 to A/L - Fully Covered",
 ];
@@ -180,24 +180,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Social Proof Numbers ── */}
-      <section className="w-full relative z-10 animate-fade-in" style={{ animationDelay: "0.25s" }}>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto">
+      {/* ── Trust Pills ── */}
+      <section className="w-full relative z-10 animate-fade-in mt-6 sm:mt-10 mb-8 sm:mb-16" style={{ animationDelay: "0.25s" }}>
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 max-w-3xl mx-auto px-2 sm:px-0">
           {[
-            { number: "Grade 6", sub: "to A/L", label: "All Levels Covered", icon: "📚" },
-            { number: "3-4×", sub: "per week", label: "Home Visit Sessions", icon: "🏠" },
-            { number: "100%", sub: "transparent", label: "Report After Every Session", icon: "📊" },
-            { number: "3 days", sub: "to start", label: "First Session Turnaround", icon: "⚡" },
-          ].map((stat, i) => (
-            <div
-              key={i}
-              className="p-4 sm:p-5 rounded-2xl border text-center"
-              style={{ background: "hsl(0 0% 100% / 0.6)", borderColor: "hsl(38 30% 88%)" }}
+            { title: "100% Home Visit", icon: "🏠" },
+            { title: "Undergraduate Guides", icon: "🎓" },
+            { title: "Daily Parent Updates", icon: "💬" },
+            { title: "Grade 6 to A/L", icon: "📚" },
+          ].map((item, i) => (
+            <div 
+              key={i} 
+              className="flex items-center gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-full bg-background/60 backdrop-blur-md border border-border shadow-sm transition-all hover:bg-background hover:shadow-md cursor-default"
             >
-              <div className="text-xl sm:text-2xl mb-1">{stat.icon}</div>
-              <div className="text-lg sm:text-2xl font-black text-gradient">{stat.number}</div>
-              <div className="text-[10px] sm:text-xs font-bold text-muted-foreground">{stat.sub}</div>
-              <div className="text-[10px] sm:text-xs font-semibold text-foreground mt-0.5 leading-tight">{stat.label}</div>
+              <span className="text-base sm:text-lg">{item.icon}</span>
+              <span className="text-[11px] sm:text-sm font-bold text-foreground tracking-tight">{item.title}</span>
             </div>
           ))}
         </div>
@@ -221,7 +218,7 @@ export default function Home() {
             { title: "Execution Over Theory", desc: "We ensure they actually sit down and study the material." },
             { title: "1-on-1 Focus At Home", desc: "Complete attention right at their own desk. Safe and effective." },
             { title: "Enforced Discipline", desc: "No phone checking, no distractions, no giving up early." },
-            { title: "Total Transparency", desc: "A detailed progress report sent to you after every single session." },
+            { title: "Total Transparency", desc: "A direct discussion with you after every single session to track progress." },
           ].map((item, i) => (
             <div key={i} className="flex items-center gap-4 p-4 rounded-2xl border bg-background/50">
               <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "hsl(38 95% 50% / 0.15)", color: "hsl(38 95% 45%)" }}>
@@ -255,30 +252,20 @@ export default function Home() {
               Message us on WhatsApp. We&apos;ll assign a Study Guide and your child&apos;s first session can begin within 3 days.
             </p>
 
-            {/* Grade-specific CTAs - stacked on mobile for easy tapping */}
-            <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 flex-wrap mb-4 max-w-sm sm:max-w-none mx-auto">
-              {[
-                { label: "Book for Grade 6-9", href: WA_LINKS.grade69, color: "hsl(243 75% 60%)", bg: "hsl(243 75% 60% / 0.12)", border: "hsl(243 75% 60% / 0.35)" },
-                { label: "Book for O/L Child", href: WA_LINKS.ol, color: "hsl(38 95% 45%)", bg: "hsl(38 95% 50% / 0.12)", border: "hsl(38 95% 50% / 0.35)" },
-                { label: "Book for A/L Child", href: WA_LINKS.al, color: "hsl(22 90% 52%)", bg: "hsl(22 90% 52% / 0.12)", border: "hsl(22 90% 52% / 0.35)" },
-              ].map((btn) => (
-                <a
-                  key={btn.label}
-                  href={btn.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex justify-center items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm border-2 transition-all active:scale-95 w-full sm:w-auto"
-                  style={{ background: btn.bg, color: btn.color, borderColor: btn.border }}
-                >
-                  <WhatsAppIcon size={15} />
-                  {btn.label}
-                </a>
-              ))}
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 flex-wrap max-w-sm sm:max-w-none mx-auto">
+              <Link
+                href="/pricing"
+                className="btn-primary text-base px-8 py-3.5 inline-flex justify-center items-center gap-2 w-full sm:w-auto"
+              >
+                View Pricing & Plans <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/our-service"
+                className="btn-secondary text-base px-8 py-3.5 inline-flex justify-center items-center gap-2 w-full sm:w-auto"
+              >
+                See How It Works
+              </Link>
             </div>
-
-            <Link href="/our-service" className="btn-secondary text-sm px-5 py-2.5 inline-flex justify-center items-center gap-2 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto">
-              Learn More First
-            </Link>
           </div>
         </div>
       </section>
