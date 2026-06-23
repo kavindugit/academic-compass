@@ -60,6 +60,7 @@ export function Navbar() {
       <div className="hidden md:flex gap-6 items-center font-medium text-muted-foreground">
         <Link href="/" className={pathname === "/" ? "text-primary font-bold text-sm transition-colors" : "hover:text-foreground transition-colors text-sm"}>Home</Link>
         <Link href="/our-service" className={pathname === "/our-service" ? "text-primary font-bold text-sm transition-colors" : "hover:text-foreground transition-colors text-sm"}>Our Service</Link>
+        <Link href="/our-service/how-we-help" className={pathname === "/our-service/how-we-help" ? "text-primary font-bold text-sm transition-colors" : "hover:text-foreground transition-colors text-sm"}>How We Help</Link>
         <Link href="/pricing" className={pathname === "/pricing" ? "text-primary font-bold text-sm transition-colors" : "hover:text-foreground transition-colors text-sm"}>Pricing</Link>
 
         <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-xl btn-primary text-sm flex items-center gap-2 shadow-sm font-bold">
@@ -72,6 +73,7 @@ export function Navbar() {
       <div className="flex md:hidden w-full justify-center items-center gap-6 mt-3 pt-2 text-sm font-semibold text-muted-foreground">
         <Link href="/" className={pathname === "/" ? "text-primary border-b-2 border-primary pb-1 transition-colors" : "hover:text-primary border-b-2 border-transparent pb-1 transition-colors"}>Home</Link>
         <Link href="/our-service" className={pathname === "/our-service" ? "text-primary border-b-2 border-primary pb-1 transition-colors" : "hover:text-primary border-b-2 border-transparent pb-1 transition-colors"}>Service</Link>
+        <Link href="/our-service/how-we-help" className={pathname === "/our-service/how-we-help" ? "text-primary border-b-2 border-primary pb-1 transition-colors" : "hover:text-primary border-b-2 border-transparent pb-1 transition-colors"}>How We Help</Link>
         <Link href="/pricing" className={pathname === "/pricing" ? "text-primary border-b-2 border-primary pb-1 transition-colors" : "hover:text-primary border-b-2 border-transparent pb-1 transition-colors"}>Pricing</Link>
       </div>
     </nav>

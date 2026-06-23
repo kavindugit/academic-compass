@@ -121,7 +121,8 @@ export default function Home() {
               icon: "🏫",
               label: "Grade 6 – 9",
               title: "Term Tests Matter More Than You Think",
-              desc: "Your child looks like they're studying — but the marks tell a different story. Most parents don't have time to sit beside them every day. A Study Guide provides the structure and accountability that turns study time into real results.",
+              desc: "Your child looks like they're studying — but the marks tell a different story. Our Study Guide sits with them, keeps them focused, and can run paper practice, recap lessons, or clear doubts on the spot — turning every hour into real results.",
+              tags: ["📄 Paper Practice", "🔁 Recap Lessons", "💡 Study Assistance"],
               color: "hsl(243 75% 60%)",
               bg: "hsl(243 75% 60% / 0.07)",
               border: "hsl(243 75% 60% / 0.25)",
@@ -130,7 +131,8 @@ export default function Home() {
               icon: "📘",
               label: "GCE O/L",
               title: "A Turning Point They Can't Afford To Waste",
-              desc: "O/L is a national turning point. Your child cannot afford to waste a single week. Laziness, distractions, and parent-child friction are real. We step in so they study consistently and are fully ready when it matters most.",
+              desc: "O/L is a national turning point. We sit with your child, enforce discipline, and structure every session — including exam-condition paper practice and lesson recaps — so they're fully prepared when it matters most.",
+              tags: ["📄 Paper Practice", "🔁 Recap Lessons", "💡 Study Assistance"],
               color: "hsl(38 95% 50%)",
               bg: "hsl(38 95% 50% / 0.07)",
               border: "hsl(38 95% 50% / 0.3)",
@@ -139,7 +141,8 @@ export default function Home() {
               icon: "🎓",
               label: "GCE A/L",
               title: "9 A's at O/L Doesn't Guarantee A/L Success",
-              desc: "A/L is a completely different game. Science students especially struggle — the workload is massive and needs 12-15 hours of daily study near exams. Without a strict plan and someone to enforce it, even the brightest students fall behind.",
+              desc: "A/L is a completely different game. The workload is massive and demands 12–15 hours of focused study near exams. Our Guide sits beside your child the entire session — keeping them focused, planning their work, and driving them toward the results they need.",
+              tags: ["🎯 Dedicated Focus", "📅 Strategic Planning", "🏆 Results-Driven"],
               color: "hsl(22 90% 52%)",
               bg: "hsl(22 90% 52% / 0.07)",
               border: "hsl(22 90% 52% / 0.3)",
@@ -161,7 +164,106 @@ export default function Home() {
               </div>
               <h3 className="text-base font-bold text-foreground leading-snug">{cat.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed font-medium flex-1">{cat.desc}</p>
+              <div className="flex flex-wrap gap-2 mt-1">
+                {cat.tags.map((tag, t) => (
+                  <span
+                    key={t}
+                    className="text-xs px-2 py-0.5 rounded-full font-semibold"
+                    style={{ background: cat.bg, color: cat.color, border: `1px solid ${cat.border}` }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── What Happens In A Session? (Grade 6-9 & O/L) ── */}
+      <section
+        className="w-full relative z-10 animate-fade-in"
+        style={{ animationDelay: "0.29s" }}
+      >
+        <div className="text-center mb-10">
+          <p
+            className="text-xs font-bold tracking-widest uppercase mb-3"
+            style={{ color: "hsl(243 75% 60%)" }}
+          >
+            For Grade 6–9 & O/L
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            What Happens{" "}
+            <span className="text-gradient-warm">In A Session?</span>
+          </h2>
+          <p className="text-base text-muted-foreground mt-3 max-w-xl mx-auto font-medium">
+            Every session is tailored to what your child needs most that day — one of three focused modes.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {[
+            {
+              icon: "📄",
+              title: "Paper Practice",
+              steps: ["Guide sets up the paper", "Child works alone under exam conditions", "Discuss every answer together after"],
+              color: "hsl(243 75% 60%)",
+              bg: "hsl(243 75% 60% / 0.07)",
+              border: "hsl(243 75% 60% / 0.22)",
+              href: "/our-service/how-we-help#paper-practice",
+            },
+            {
+              icon: "🔁",
+              title: "Recap Lessons",
+              steps: ["Review today's school/tuition notes", "Guide tests understanding with questions", "Fill the gaps before they're forgotten"],
+              color: "hsl(38 95% 45%)",
+              bg: "hsl(38 95% 50% / 0.07)",
+              border: "hsl(38 95% 50% / 0.22)",
+              href: "/our-service/how-we-help#recap-lessons",
+            },
+            {
+              icon: "💡",
+              title: "Study Assistance",
+              steps: ["Child self-studies with guide present", "Guide clears doubts the moment they arise", "Child continues — no lost momentum"],
+              color: "hsl(22 90% 52%)",
+              bg: "hsl(22 90% 52% / 0.07)",
+              border: "hsl(22 90% 52% / 0.22)",
+              href: "/our-service/how-we-help#study-assistance",
+            },
+          ].map((item, i) => (
+            <Link
+              key={i}
+              href={item.href}
+              className="glass-card-hover p-6 flex flex-col gap-4 group relative overflow-hidden"
+            >
+              <div
+                className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl border flex-shrink-0"
+                style={{ background: item.bg, borderColor: item.border }}
+              >
+                {item.icon}
+              </div>
+              <h3 className="text-base font-bold text-foreground">{item.title}</h3>
+              <ol className="flex flex-col gap-2">
+                {item.steps.map((step, s) => (
+                  <li key={s} className="flex items-start gap-2 text-sm text-muted-foreground font-medium">
+                    <span
+                      className="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                      style={{ background: item.bg, color: item.color }}
+                    >
+                      {s + 1}
+                    </span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+              <span
+                className="inline-flex items-center gap-1 text-xs font-bold mt-auto"
+                style={{ color: item.color }}
+              >
+                See how it works
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </span>
+            </Link>
           ))}
         </div>
       </section>

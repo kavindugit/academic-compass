@@ -267,6 +267,90 @@ export default function OurServicePage() {
 
 
       {/* ══════════════════════════════════════════
+          HOW WE HELP — 3 Session Modes (Grade 6-9 & O/L)
+      ══════════════════════════════════════════ */}
+      <section className="w-full relative z-10 animate-fade-in" style={{ animationDelay: "0.28s" }}>
+        <div className="text-center mb-10">
+          <p
+            className="text-xs font-bold tracking-widest uppercase mb-3"
+            style={{ color: "hsl(243 75% 60%)" }}
+          >
+            Session Modes
+          </p>
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground">
+            What Your Child Does{" "}
+            <span className="text-gradient">During A Session</span>
+          </h2>
+          <p className="text-base text-muted-foreground mt-3 max-w-xl mx-auto font-medium">
+            For Grade 6–9 and O/L students, every session is structured around one of three modes — chosen based on what your child needs most that day.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              icon: "📄",
+              label: "Grade 6–9 & O/L",
+              title: "Paper Practice",
+              desc: "The guide sets up a past paper or term test in exam conditions. Your child completes the entire paper on their own — no help, no hints. Only after the last question do they discuss every answer together.",
+              color: "hsl(243 75% 60%)",
+              bg: "hsl(243 75% 60% / 0.07)",
+              border: "hsl(243 75% 60% / 0.25)",
+              href: "/our-service/how-we-help#paper-practice",
+            },
+            {
+              icon: "🔁",
+              label: "Grade 6–9 & O/L",
+              title: "Recap Lessons",
+              desc: "After school or tuition, most students forget what they learned within hours. The guide does a structured recap — testing key concepts, finding the gaps, and locking in understanding before moving on.",
+              color: "hsl(38 95% 45%)",
+              bg: "hsl(38 95% 50% / 0.07)",
+              border: "hsl(38 95% 50% / 0.25)",
+              href: "/our-service/how-we-help#recap-lessons",
+            },
+            {
+              icon: "💡",
+              label: "Grade 6–9 & O/L",
+              title: "Study Assistance",
+              desc: "Your child self-studies while the guide keeps them on track. When they hit a doubt, the guide clears it immediately — just that specific block — and your child gets right back to work without losing momentum.",
+              color: "hsl(22 90% 52%)",
+              bg: "hsl(22 90% 52% / 0.07)",
+              border: "hsl(22 90% 52% / 0.30)",
+              href: "/our-service/how-we-help#study-assistance",
+            },
+          ].map((mode, i) => (
+            <Link
+              key={i}
+              href={mode.href}
+              className="glass-card-hover p-7 flex flex-col gap-4 group relative overflow-hidden cursor-pointer no-underline"
+            >
+              <div
+                className="absolute top-0 right-0 w-28 h-28 rounded-full blur-3xl pointer-events-none opacity-50"
+                style={{ background: mode.bg }}
+              />
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold self-start border"
+                style={{ background: mode.bg, color: mode.color, borderColor: mode.border }}
+              >
+                <span>{mode.icon}</span> {mode.label}
+              </div>
+              <h3 className="text-lg font-bold text-foreground">{mode.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed font-medium flex-1">
+                {mode.desc}
+              </p>
+              <span
+                className="inline-flex items-center gap-1 text-xs font-bold mt-1"
+                style={{ color: mode.color }}
+              >
+                Learn more
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
           THE VETTING PROCESS
       ══════════════════════════════════════════ */}
       <section className="w-full relative z-10 animate-fade-in" style={{ animationDelay: "0.32s" }}>
