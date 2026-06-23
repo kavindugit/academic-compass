@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Our Service | PathwayLK — Home Visit Study Guidance",
+  title: "Our Service",
   description:
     "We send a trained study guide to your home to sit with your child while they study. They stay focused. You stay informed. Covering Grade 6 through A/L.",
+  openGraph: {
+    title: "Our Service | PathwayLK",
+    description: "We send a trained study guide to your home to sit with your child while they study. Covering Grade 6 through A/L.",
+    url: "https://www.pathwaylk.com/our-service",
+  },
 };
 
 const WA_BASE = "https://wa.me/+94704401729?text=";

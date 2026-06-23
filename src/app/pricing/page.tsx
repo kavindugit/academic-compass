@@ -3,9 +3,14 @@ import { PLANS, formatCurrency } from "@/shared";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pricing | PathwayLK — Home Visit Study Guidance Plans",
+  title: "Pricing & Plans",
   description:
-    "Transparent weekly pricing for PathwayLK home visit study guidance. Grade 6–9 from LKR 10,000/week. O/L from LKR 15,000/week. A/L from LKR 30,000/week. No contracts.",
+    "Simple, transparent pricing for premium home visit study guidance in Sri Lanka. Billed weekly, no long-term contracts. Grade 6 to A/L.",
+  openGraph: {
+    title: "Pricing & Plans | PathwayLK",
+    description: "Simple, transparent pricing for premium home visit study guidance in Sri Lanka.",
+    url: "https://www.pathwaylk.com/pricing",
+  },
 };
 
 const WA_BASE = "https://wa.me/+94704401729?text=";

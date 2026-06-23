@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How We Help | PathwayLK — Paper Practice, Recap & Study Assistance",
+  title: "How We Help",
   description:
     "During every home-visit session, our Study Guide can run paper practice, recap lessons, or help your child through doubts — all for Grade 6–9 and O/L students. A/L students get dedicated full-session focus enforcement.",
+  openGraph: {
+    title: "How We Help | PathwayLK",
+    description: "Detailed breakdown of our home visit sessions. Paper practice, recap lessons, study assistance, and A/L focus enforcement.",
+    url: "https://www.pathwaylk.com/our-service/how-we-help",
+  },
 };
 
 const WA_BASE = "https://wa.me/+94704401729?text=";

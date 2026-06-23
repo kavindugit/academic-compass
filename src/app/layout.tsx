@@ -15,9 +15,50 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "PathwayLK | Home Visit Study Guide for Grade 6–9, O/L & A/L",
+  metadataBase: new URL("https://www.pathwaylk.com"), // Placeholder domain
+  title: {
+    default: "PathwayLK | Home Visit Study Guidance",
+    template: "%s | PathwayLK",
+  },
   description:
-    "Sri Lanka's home visit study guidance service. A trained Study Guide comes to your home, sits with your child, keeps them focused, and reports to you after every session. Covering Grade 6 through A/L.",
+    "Sri Lanka's premium home visit study guidance service. A trained Study Guide sits with your child, enforces focus, clears doubts, and reports to you. Grade 6 to A/L.",
+  keywords: [
+    "home visit study guide",
+    "tuition Sri Lanka",
+    "A/L tuition",
+    "O/L tuition",
+    "home tutor Colombo",
+    "study focus",
+    "PathwayLK",
+    "exam preparation Sri Lanka",
+  ],
+  authors: [{ name: "PathwayLK" }],
+  creator: "PathwayLK",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.pathwaylk.com",
+    title: "PathwayLK | Home Visit Study Guidance",
+    description: "Reclaim your peace of mind. We send a trained Study Guide to your home to ensure your child actually studies.",
+    siteName: "PathwayLK",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PathwayLK | Home Visit Study Guidance",
+    description: "Reclaim your peace of mind. We send a trained Study Guide to your home to ensure your child actually studies.",
+    creator: "@pathwaylk",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
