@@ -15,20 +15,20 @@ export const metadata: Metadata = {
 
 const WA_BASE = "https://wa.me/+94704401729?text=";
 const planMessages: Record<string, string> = {
-  "grade-6-9": WA_BASE + encodeURIComponent("Hi PathwayLK, I am interested in the Grade 6–9 home study plan for my child."),
+  "grade-6-9": WA_BASE + encodeURIComponent("Hi PathwayLK, I am interested in the Grade 6-9 home study plan for my child."),
   "ol": WA_BASE + encodeURIComponent("Hi PathwayLK, I am interested in the GCE O/L home study plan for my child."),
   "al": WA_BASE + encodeURIComponent("Hi PathwayLK, I am interested in the GCE A/L home study plan for my child."),
 };
 
 const planMeta: Record<string, { context: string; badge?: string; badgeColor?: string; note?: string; color: string; bg: string; border: string }> = {
   "grade-6-9": {
-    context: "For students in Grade 6 to Grade 9 — building study discipline and scoring better in term tests.",
+    context: "For students in Grade 6 to Grade 9 - building study discipline and scoring better in term tests.",
     color: "hsl(243 75% 60%)",
     bg: "hsl(243 75% 60% / 0.07)",
     border: "hsl(243 75% 60% / 0.30)",
   },
   "ol": {
-    context: "For students preparing for the GCE Ordinary Level national examination — the most important turning point.",
+    context: "For students preparing for the GCE Ordinary Level national examination - the most important turning point.",
     badge: "Most Popular",
     badgeColor: "hsl(38 95% 45%)",
     color: "hsl(38 95% 50%)",
@@ -36,8 +36,8 @@ const planMeta: Record<string, { context: string; badge?: string; badgeColor?: s
     border: "hsl(38 95% 50% / 0.30)",
   },
   "al": {
-    context: "For students preparing for the GCE Advanced Level — the highest-intensity, highest-stakes exam in the Sri Lankan system.",
-    note: "A/L students require 12–15 hours of focused study per week near exams. Our 6-hour sessions match that intensity.",
+    context: "For students preparing for the GCE Advanced Level - the highest-intensity, highest-stakes exam in the Sri Lankan system.",
+    note: "A/L students require 12-15 hours of focused study per week near exams. Our 6-hour sessions match that intensity.",
     color: "hsl(22 90% 52%)",
     bg: "hsl(22 90% 52% / 0.07)",
     border: "hsl(22 90% 52% / 0.30)",
@@ -71,7 +71,7 @@ export default function Pricing() {
             <span>🔒</span> No contracts. Pause or cancel anytime.
           </div>
           <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-muted/50 border shadow-sm text-xs sm:text-sm font-bold text-foreground">
-            <span>🏠</span> We come to your home — no travel.
+            <span>🏠</span> We come to your home - no travel.
           </div>
         </div>
       </div>
@@ -195,7 +195,7 @@ export default function Pricing() {
               },
               {
                 q: "Why is the A/L plan 6 hours per session?",
-                a: "A/L students need 12–15 hours of focused study per week near their exams. Six-hour sessions allow for deep, sustained work — covering multiple subjects and maintaining intensity. Shorter sessions don't build the endurance A/L demands.",
+                a: "A/L students need 12-15 hours of focused study per week near their exams. Six-hour sessions allow for deep, sustained work - covering multiple subjects and maintaining intensity. Shorter sessions don't build the endurance A/L demands.",
               },
               {
                 q: "Are there any hidden fees?",
@@ -228,7 +228,7 @@ export default function Pricing() {
         >
           <h2 className="text-2xl md:text-3xl font-extrabold mb-3 text-foreground">Not Sure Which Plan?</h2>
           <p className="text-sm text-muted-foreground font-medium mb-6 max-w-md mx-auto">
-            Message us on WhatsApp. Tell us your child&apos;s grade and what they need — we&apos;ll recommend the right plan and answer any questions.
+            Message us on WhatsApp. Tell us your child&apos;s grade and what they need - we&apos;ll recommend the right plan and answer any questions.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a

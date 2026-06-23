@@ -86,7 +86,7 @@ export function Navbar() {
         </a>
       </div>
 
-      {/* Mobile Navigation Tabs — compact, no overflow */}
+      {/* Mobile Navigation Tabs - compact, no overflow */}
       <div className="flex md:hidden w-full justify-between items-center mt-2 pt-2 border-t border-border/40">
         <Link href="/" className={pathname === "/" ? activeLink : inactiveLink}>Home</Link>
         <Link href="/our-service" className={pathname === "/our-service" ? activeLink : inactiveLink}>Service</Link>

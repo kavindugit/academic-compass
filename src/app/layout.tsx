@@ -76,7 +76,7 @@ export default function RootLayout({
             {children}
           </div>
         </main>
-        {/* Floating WhatsApp button — mobile only, appears on scroll */}
+        {/* Floating WhatsApp button - mobile only, appears on scroll */}
         <FloatingWhatsApp />
       </body>
     </html>
