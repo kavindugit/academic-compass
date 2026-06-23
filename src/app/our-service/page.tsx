@@ -4,21 +4,36 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Our Service | PathwayLK — Home Visit Study Guidance",
   description:
-    "We send a trained study guide to your home to sit with your child while they study. They stay focused. You stay informed.",
+    "We send a trained study guide to your home to sit with your child while they study. They stay focused. You stay informed. Covering Grade 6 through A/L.",
 };
+
+const WA_BASE = "https://wa.me/+94704401729?text=";
+const WA_LINKS = {
+  grade69: WA_BASE + encodeURIComponent("Hi PathwayLK, I would like to enquire about your Grade 6–9 home study plan for my child."),
+  ol: WA_BASE + encodeURIComponent("Hi PathwayLK, I would like to enquire about your GCE O/L home study plan for my child."),
+  al: WA_BASE + encodeURIComponent("Hi PathwayLK, I would like to enquire about your GCE A/L home study plan for my child."),
+};
+
+const WhatsAppIcon = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+  </svg>
+);
 
 export default function OurServicePage() {
   return (
-    <div className="flex flex-col items-center gap-20 w-full relative py-8">
+    <div className="flex flex-col items-center gap-10 md:gap-16 lg:gap-20 w-full relative py-4 md:py-8">
 
       {/* ══════════════════════════════════════════
           HERO — Simple, Clear Statement
       ══════════════════════════════════════════ */}
-      <section className="w-full relative z-10 animate-slide-up mt-2">
+      <section className="w-full relative z-10 animate-slide-up mt-1 md:mt-2">
         <div className="relative z-10 max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold border mb-4" style={{ background: "hsl(243 75% 60% / 0.08)", borderColor: "hsl(243 75% 60% / 0.25)", color: "hsl(243 75% 55%)" }}>
+            🏫 Grade 6–9 &nbsp;·&nbsp; 📘 GCE O/L &nbsp;·&nbsp; 🎓 GCE A/L — All Levels Covered
+          </div>
 
-
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 text-foreground leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-foreground leading-tight">
             We Send A Study Guide To Your Home.{" "}
             <br className="hidden md:block" />
             <span className="shimmer-text">
@@ -26,11 +41,67 @@ export default function OurServicePage() {
             </span>
           </h1>
 
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-medium max-w-2xl mx-auto">
+          <p className="text-sm md:text-lg text-muted-foreground leading-relaxed font-medium max-w-2xl mx-auto mb-6">
             Reclaim your peace of mind. We provide a trained Study Guide who visits
             your home, sits beside your child, keeps them focused, clears their
             doubts, and makes sure not a single minute is wasted.
           </p>
+
+          {/* Quick grade CTAs */}
+          <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 flex-wrap">
+            {[
+              { label: "Grade 6–9 Child", href: WA_LINKS.grade69, color: "hsl(243 75% 60%)", bg: "hsl(243 75% 60% / 0.10)", border: "hsl(243 75% 60% / 0.35)" },
+              { label: "O/L Child", href: WA_LINKS.ol, color: "hsl(38 95% 45%)", bg: "hsl(38 95% 50% / 0.10)", border: "hsl(38 95% 50% / 0.35)" },
+              { label: "A/L Child", href: WA_LINKS.al, color: "hsl(22 90% 52%)", bg: "hsl(22 90% 52% / 0.10)", border: "hsl(22 90% 52% / 0.35)" },
+            ].map((btn) => (
+              <a
+                key={btn.label}
+                href={btn.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs border-2 transition-all active:scale-95 w-full sm:w-auto"
+                style={{ background: btn.bg, color: btn.color, borderColor: btn.border }}
+              >
+                <WhatsAppIcon size={13} />
+                I have a {btn.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          VETTING — Safety & Trust (Moved to Position 2)
+      ══════════════════════════════════════════ */}
+      <section className="w-full relative z-10 animate-fade-in" style={{ animationDelay: "0.18s" }}>
+        <div className="bg-muted/30 rounded-3xl p-8 md:p-12 border">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="md:w-1/3">
+              <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "hsl(243 75% 60%)" }}>
+                Safety &amp; Quality
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                Who Is Coming To Your Home?
+              </h2>
+              <p className="text-muted-foreground font-medium text-sm leading-relaxed">
+                We know you are inviting someone into your home to sit with your child. We take this responsibility extremely seriously.
+              </p>
+            </div>
+            <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { title: "Top Undergraduates", desc: "Most of our guides are undergraduates from top local universities who recently excelled in O/L and A/L.", icon: "🎓" },
+                { title: "Strict Background Checks", desc: "Every guide passes a comprehensive identity and background verification before joining us.", icon: "🔍" },
+                { title: "Methodology Training", desc: "They don't just teach; they are trained in our specific 'study enforcement' methodology.", icon: "📋" },
+                { title: "Continuous Monitoring", desc: "We track their session reports and parent feedback to ensure top quality every single day.", icon: "📊" }
+              ].map((vet, i) => (
+                <div key={i} className="bg-background rounded-2xl p-5 border shadow-sm">
+                  <div className="text-2xl mb-2">{vet.icon}</div>
+                  <h4 className="font-bold text-foreground mb-1">{vet.title}</h4>
+                  <p className="text-xs text-muted-foreground font-medium leading-relaxed">{vet.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -350,39 +421,7 @@ export default function OurServicePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════
-          THE VETTING PROCESS
-      ══════════════════════════════════════════ */}
-      <section className="w-full relative z-10 animate-fade-in" style={{ animationDelay: "0.32s" }}>
-        <div className="bg-muted/30 rounded-3xl p-8 md:p-12 border">
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="md:w-1/3">
-              <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "hsl(243 75% 60%)" }}>
-                Safety & Quality
-              </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Who Is Coming To Your Home?
-              </h2>
-              <p className="text-muted-foreground font-medium text-sm leading-relaxed">
-                We know you are inviting someone into your home to sit with your child. We take this responsibility extremely seriously.
-              </p>
-            </div>
-            <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { title: "Top Undergraduates", desc: "Most of our guides are undergraduates from top local universities who recently excelled in O/L and A/L." },
-                { title: "Strict Background Checks", desc: "Every guide passes a comprehensive identity and background verification before joining us." },
-                { title: "Methodology Training", desc: "They don't just teach; they are trained in our specific 'study enforcement' methodology." },
-                { title: "Continuous Monitoring", desc: "We track their session reports and parent feedback to ensure top quality every single day." }
-              ].map((vet, i) => (
-                <div key={i} className="bg-background rounded-2xl p-5 border shadow-sm">
-                  <h4 className="font-bold text-foreground mb-1">{vet.title}</h4>
-                  <p className="text-xs text-muted-foreground font-medium leading-relaxed">{vet.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Vetting section moved to top — removed duplicate here */}
 
       {/* ══════════════════════════════════════════
           TRUST — Common Questions
@@ -459,7 +498,7 @@ export default function OurServicePage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          CTA — Simple Next Step
+          CTA — Grade-Specific Next Steps
       ══════════════════════════════════════════ */}
       <section className="w-full relative z-10 animate-fade-in text-center" style={{ animationDelay: "0.4s" }}>
         <div
@@ -482,22 +521,37 @@ export default function OurServicePage() {
               Ready To Get Started?
             </h2>
             <p className="text-base text-muted-foreground font-medium mb-8 max-w-lg mx-auto">
-              Message us today. We'll chat about your needs,
-              assign a Study Guide, and set everything up. It's that simple.
+              Select your child&apos;s level below and message us directly on WhatsApp.
+              We&apos;ll assign a Study Guide and set everything up within 3 days.
             </p>
-            <a
-              href="https://wa.me/+94704401729?text=Hi%20PathwayLK,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
-              target="_blank" 
-              rel="noopener noreferrer"
-              id="our-service-cta-btn"
-              className="btn-primary text-lg px-10 py-4 inline-flex justify-center items-center gap-2 shadow-lg w-full sm:w-auto"
-              style={{
-                boxShadow: "0 4px 24px hsl(38 95% 50% / 0.35)",
-              }}
+
+            {/* Grade-specific CTAs */}
+            <div className="flex flex-col sm:flex-row justify-center gap-3 flex-wrap mb-5">
+              {[
+                { label: "Book for Grade 6–9 Child", href: WA_LINKS.grade69, color: "hsl(243 75% 60%)", bg: "hsl(243 75% 60% / 0.12)", border: "hsl(243 75% 60% / 0.35)" },
+                { label: "Book for O/L Child", href: WA_LINKS.ol, color: "hsl(38 95% 45%)", bg: "hsl(38 95% 50% / 0.12)", border: "hsl(38 95% 50% / 0.35)" },
+                { label: "Book for A/L Child", href: WA_LINKS.al, color: "hsl(22 90% 52%)", bg: "hsl(22 90% 52% / 0.12)", border: "hsl(22 90% 52% / 0.35)" },
+              ].map((btn) => (
+                <a
+                  key={btn.label}
+                  href={btn.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm border-2 transition-all hover:-translate-y-0.5 w-full sm:w-auto"
+                  style={{ background: btn.bg, color: btn.color, borderColor: btn.border }}
+                >
+                  <WhatsAppIcon size={16} />
+                  {btn.label}
+                </a>
+              ))}
+            </div>
+
+            <Link
+              href="/pricing"
+              className="btn-secondary text-base px-6 py-3 inline-flex justify-center items-center gap-2 w-full sm:w-auto"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              Book via WhatsApp
-            </a>
+              View Pricing Plans
+            </Link>
           </div>
         </div>
       </section>
