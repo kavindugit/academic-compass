@@ -33,9 +33,7 @@ export default function OurServicePage() {
       ══════════════════════════════════════════ */}
       <section className="w-full relative z-10 animate-slide-up mt-1 md:mt-2">
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold border mb-4" style={{ background: "hsl(243 75% 60% / 0.08)", borderColor: "hsl(243 75% 60% / 0.25)", color: "hsl(243 75% 55%)" }}>
-            🏫 Grade 6-9 &nbsp;·&nbsp; 📘 GCE O/L &nbsp;·&nbsp; 🎓 GCE A/L - All Levels Covered
-          </div>
+
 
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-foreground leading-tight">
             We Send A Study Guide To Your Home.{" "}
@@ -86,7 +84,7 @@ export default function OurServicePage() {
               The Missing Link
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Tuition Classes Teach. <br/>But Who Ensures They Study?
+              Tuition Classes Teach. <br />But Who Ensures They Study?
             </h2>
             <div className="space-y-4 text-muted-foreground font-medium text-sm leading-relaxed">
               <p>

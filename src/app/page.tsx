@@ -58,13 +58,6 @@ export default function Home() {
       {/* ── Hero Section ── */}
       <section className="text-center mt-4 md:mt-12 max-w-5xl w-full mx-auto relative z-10">
 
-        {/* Service badge - quick orientation */}
-        <div
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold border mb-4 animate-slide-up"
-          style={{ background: "hsl(243 75% 60% / 0.08)", borderColor: "hsl(243 75% 60% / 0.25)", color: "hsl(243 75% 55%)" }}
-        >
-          🏠 Home Visit Study Guidance · Grade 6 to A/L
-        </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 text-foreground animate-slide-up leading-[1.1]">
           Your Child&apos;s Dream.{" "}
@@ -100,26 +93,26 @@ export default function Home() {
                 }}
               >
                 {/* Hover Glow Effect */}
-                <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
-                  style={{ background: `radial-gradient(circle at center, ${g.color.replace('hsl', 'hsla').replace(')', ' / 0.08)')} 0%, transparent 70%)` }} 
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: `radial-gradient(circle at center, ${g.color.replace('hsl', 'hsla').replace(')', ' / 0.08)')} 0%, transparent 70%)` }}
                 />
-                
+
                 {/* Glowing border effect */}
-                <div 
-                  className="absolute inset-0 border-2 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" 
-                  style={{ borderColor: g.color }} 
+                <div
+                  className="absolute inset-0 border-2 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{ borderColor: g.color }}
                 />
-                
+
                 <div className="relative z-10 flex flex-col items-center">
                   <div className="mb-2 sm:mb-4 transform transition-all duration-300 group-hover:scale-110 group-hover:-rotate-3 group-hover:drop-shadow-md">
                     <span className="text-3xl sm:text-5xl">{g.icon}</span>
                   </div>
-                  
+
                   <h3 className="text-[11px] sm:text-lg font-extrabold text-foreground tracking-tight text-center mb-1.5 sm:mb-2 transition-colors duration-300" style={{ '--hover-color': g.color } as React.CSSProperties}>
                     {g.label}
                   </h3>
-                  
+
                   <span className="text-[9px] sm:text-xs font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full transition-all duration-300 group-hover:scale-105 mb-2 sm:mb-3" style={{ color: g.color, background: `${g.color.replace('hsl', 'hsla').replace(')', ' / 0.1)')}` }}>
                     LKR {g.price}
                   </span>
