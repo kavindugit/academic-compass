@@ -394,8 +394,8 @@ export default function OurServicePage() {
               Ready To Get Started?
             </h2>
             <p className="text-base text-muted-foreground font-medium mb-8 max-w-lg mx-auto">
-              Register your child today. We'll call you, understand your needs,
-              assign a Study Guide, and set everything up. It's that simple.
+              Register your child today. We’ll call you, understand your needs,
+              assign a Study Guide, and set everything up. It’s that simple.
             </p>
             <Link
               href="/register"

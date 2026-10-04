@@ -8,7 +8,7 @@ export const PLANS = [
       '2 Hours per session',
       'Paper Practice (past papers & term tests)',
       'Recap Lessons after school/tuition',
-      'Study Assistance & instant doubt clearing',
+      'Study help in agreed subjects',
       'Post-session parent discussion',
       'Weekly progress update',
     ]
@@ -22,7 +22,7 @@ export const PLANS = [
       '3 Hours per session',
       'Exam-condition Paper Practice',
       'Recap Lessons after tuition',
-      'Study Assistance & instant doubt clearing',
+      'Study help in agreed subjects',
       'Post-session parent discussion',
       'Weekly progress update',
     ]
@@ -34,7 +34,7 @@ export const PLANS = [
     features: [
       '4 Sessions per week',
       '6 Hours per session',
-      'Dedicated full-session focus enforcement',
+      'Structured study blocks with planned breaks',
       'Strategic daily study planning',
       'Motivation & accountability coaching',
       'Post-session parent discussion',
@@ -42,4 +42,3 @@ export const PLANS = [
     ]
   }
 ];
-

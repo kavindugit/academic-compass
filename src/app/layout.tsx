@@ -1,84 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
-import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { Footer } from "@/components/SiteUI";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-heading",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.pathwaylk.com"), // Placeholder domain
-  title: {
-    default: "PathwayLK | Home Visit Study Guidance",
-    template: "%s | PathwayLK",
-  },
-  description:
-    "Sri Lanka's premium home visit study guidance service. A trained Study Guide sits with your child, enforces focus, clears doubts, and discusses progress with you. Grade 6 to A/L.",
-  keywords: [
-    "home visit study guide",
-    "tuition Sri Lanka",
-    "A/L tuition",
-    "O/L tuition",
-    "home tutor Colombo",
-    "study focus",
-    "PathwayLK",
-    "exam preparation Sri Lanka",
-  ],
-  authors: [{ name: "PathwayLK" }],
-  creator: "PathwayLK",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://www.pathwaylk.com",
-    title: "PathwayLK | Home Visit Study Guidance",
-    description: "Reclaim your peace of mind. We send a trained Study Guide to your home to ensure your child actually studies.",
-    siteName: "PathwayLK",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "PathwayLK | Home Visit Study Guidance",
-    description: "Reclaim your peace of mind. We send a trained Study Guide to your home to ensure your child actually studies.",
-    creator: "@pathwaylk",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://academic-compass-az3yfwidp-kavindus-projects-a09fba5a.vercel.app"),
+  title: { default: "PathwayLK | A Study Guide, at your home", template: "%s | PathwayLK" },
+  description: "Home visit study guidance for Grade 6–9, O/L and A/L students in Sri Lanka. Structured revision, paper practice and updates for parents.",
+  robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} antialiased h-full overflow-x-hidden`}>
-      <body className="min-h-full flex flex-col bg-background text-foreground relative overflow-x-hidden">
-        <Navbar />
-        <main className="flex-1 flex flex-col items-center relative z-10 pb-20 md:pb-0">
-          {/* Reduced horizontal padding on mobile for breathing room */}
-          <div className="w-full max-w-7xl px-3 sm:px-5 md:px-6 lg:px-8 py-4 md:py-8">
-            {children}
-          </div>
-        </main>
-        {/* Floating WhatsApp button - mobile only, appears on scroll */}
-        <FloatingWhatsApp />
-      </body>
-    </html>
-  );
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en"><body><a className="skip-link" href="#main">Skip to content</a><Navbar /><main id="main">{children}</main><Footer /><a className="mobile-contact" href="https://wa.me/94704401729?text=Hi%20PathwayLK%2C%20can%20we%20discuss%20study%20support%20for%20my%20child%3F" target="_blank" rel="noopener noreferrer">Let’s talk on WhatsApp</a></body></html>;
 }

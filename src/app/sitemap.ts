@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.pathwaylk.com' // Using a placeholder domain
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://academic-compass-az3yfwidp-kavindus-projects-a09fba5a.vercel.app').replace(/\/$/, '')
 
   return [
     {

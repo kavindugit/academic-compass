@@ -1,12 +1,6 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: '/private/',
-    },
-    sitemap: 'https://www.pathwaylk.com/sitemap.xml',
-  }
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://academic-compass-az3yfwidp-kavindus-projects-a09fba5a.vercel.app').replace(/\/$/, '')
+  return { rules: { userAgent: '*', allow: '/' }, sitemap: `${baseUrl}/sitemap.xml` }
 }

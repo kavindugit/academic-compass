@@ -1,274 +1,62 @@
-"use client";
 import Link from "next/link";
-import { useState } from "react";
+import { BookOpen, House, Users, MessageCircle, Check, ClipboardCheck, FileText, Lightbulb, CalendarDays } from "lucide-react";
+import { ContactButton, SectionHeading, SampleReport, PlanCards, FAQ, CTA } from "@/components/SiteUI";
 
-const tickerItems = [
-  "We Come To Your Home",
-  "We Sit With Your Child",
-  "Post-Session Discussion",
-  "No Travel Needed",
-  "A Dedicated Study Guide",
-  "Daily Parent Updates",
-  "Instant Doubt Clearing",
-  "Grade 6 to A/L - Fully Covered",
+const sessionModes = [
+  { icon: FileText, number: "01", title: "Practise the paper.", text: "Your child attempts the questions. The guide helps review mistakes and identify what needs another try.", tag: "PAPER PRACTICE", className: "practice-card" },
+  { icon: BookOpen, number: "02", title: "Revisit the lesson.", text: "Go back to school and tuition notes. Use questions and short exercises to check what your child understands.", tag: "LESSON RECAPS", className: "recap-card" },
+  { icon: Lightbulb, number: "03", title: "Get past the block.", text: "Get help in agreed subjects when a question feels difficult, then return to the work with a clearer next step.", tag: "STUDY ASSISTANCE", className: "assist-card" },
 ];
 
-const WA_BASE = "https://wa.me/+94704401729?text=";
-const WA_LINKS = {
-  grade69: WA_BASE + encodeURIComponent("Hi PathwayLK, I would like to enquire about your Grade 6-9 home study plan for my child."),
-  ol: WA_BASE + encodeURIComponent("Hi PathwayLK, I would like to enquire about your GCE O/L home study plan for my child."),
-  al: WA_BASE + encodeURIComponent("Hi PathwayLK, I would like to enquire about your GCE A/L home study plan for my child."),
-  general: WA_BASE + encodeURIComponent("Hi PathwayLK, I would like to know more about your services."),
-};
-
-const WhatsAppIcon = ({ size = 20 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-  </svg>
-);
-
-const PhoneIcon = ({ size = 16 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-  </svg>
-);
-
-const ArrowRight = ({ size = 12 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M5 12h14M12 5l7 7-7 7" />
-  </svg>
-);
-
-const CheckIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M20 6 9 17l-5-5" />
-  </svg>
-);
-
 export default function Home() {
-  const allTickers = [...tickerItems, ...tickerItems];
-
-  return (
-    // gap-10 on mobile (40px), gap-16 on tablet, gap-20 on desktop
-    <div className="flex flex-col items-center justify-center py-4 md:py-8 gap-10 md:gap-16 lg:gap-20 w-full relative">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="hero-gradient opacity-70"></div>
-      </div>
-
-      {/* ── Hero Section ── */}
-      <section className="text-center mt-4 md:mt-12 max-w-5xl w-full mx-auto relative z-10">
-
-
-        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 text-foreground animate-slide-up leading-[1.1]">
-          Your Child&apos;s Dream.{" "}
-          <span className="shimmer-text">Our Ultimate Guidance.</span>
-        </h1>
-
-        {/* Bold one-liner - immediately scannable on mobile */}
-        <p
-          className="text-base sm:text-lg md:text-2xl font-bold text-foreground mb-6 sm:mb-8 animate-slide-up px-1"
-          style={{ animationDelay: "0.08s" }}
-        >
-          We send a Study Guide to your home - they sit with your child and make sure they actually study.
-        </p>
-
-        {/* ── Grade Selector - always 3-col horizontal grid on mobile ── */}
-        <div className="animate-slide-up mb-6" style={{ animationDelay: "0.15s" }}>
-          <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "hsl(243 75% 60%)" }}>
-            My child is in →
-          </p>
-          {/* 3 Premium interactive cards - stacked on mobile, row on tablet/desktop */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto px-4 sm:px-0">
-            {[
-              { key: "grade69", label: "Grade 6-9", icon: "🏫", color: "hsl(243 75% 60%)", price: "10,000 / week", href: "/our-service/how-we-help#grade69" },
-              { key: "ol", label: "GCE O/L", icon: "📘", color: "hsl(38 95% 45%)", price: "15,000 / week", href: "/our-service/how-we-help#ol" },
-              { key: "al", label: "GCE A/L", icon: "🎓", color: "hsl(22 90% 52%)", price: "30,000 / week", href: "/our-service/how-we-help#al" },
-            ].map((g) => (
-              <Link
-                key={g.key}
-                href={g.href}
-                className="group relative flex flex-col items-center justify-center py-4 sm:py-6 px-1 sm:px-4 rounded-2xl sm:rounded-3xl border border-border/60 bg-background/60 backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
-                style={{
-                  boxShadow: "0 8px 30px -10px rgba(0,0,0,0.08)"
-                }}
-              >
-                {/* Hover Glow Effect */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: `radial-gradient(circle at center, ${g.color.replace('hsl', 'hsla').replace(')', ' / 0.08)')} 0%, transparent 70%)` }}
-                />
-
-                {/* Glowing border effect */}
-                <div
-                  className="absolute inset-0 border-2 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  style={{ borderColor: g.color }}
-                />
-
-                <div className="relative z-10 flex flex-col items-center">
-                  <div className="mb-2 sm:mb-4 transform transition-all duration-300 group-hover:scale-110 group-hover:-rotate-3 group-hover:drop-shadow-md">
-                    <span className="text-3xl sm:text-5xl">{g.icon}</span>
-                  </div>
-
-                  <h3 className="text-[11px] sm:text-lg font-extrabold text-foreground tracking-tight text-center mb-1.5 sm:mb-2 transition-colors duration-300" style={{ '--hover-color': g.color } as React.CSSProperties}>
-                    {g.label}
-                  </h3>
-
-                  <span className="text-[9px] sm:text-xs font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full transition-all duration-300 group-hover:scale-105 mb-2 sm:mb-3" style={{ color: g.color, background: `${g.color.replace('hsl', 'hsla').replace(')', ' / 0.1)')}` }}>
-                    LKR {g.price}
-                  </span>
-
-                  {/* Click affordance */}
-                  <div className="flex items-center gap-1 text-[10px] sm:text-sm font-semibold opacity-70 group-hover:opacity-100 transition-opacity duration-300" style={{ color: g.color }}>
-                    See Details <ArrowRight size={14} />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+  return <>
+    <div className="hero-band">
+      <section className="container hero">
+        <div className="hero-copy">
+          <p className="hero-kicker"><House size={16} aria-hidden="true" /> HOME VISIT STUDY GUIDANCE · SRI LANKA</p>
+          <h1>A Study Guide.<br /><span className="headline-blue">At your home.</span><br />By their side.</h1>
+          <p className="hero-description">We send a Study Guide to your home to sit with your child, organise revision, work through practice questions and update you after every visit.</p>
+          <div className="button-row"><ContactButton>Find a Study Guide</ContactButton><Link className="button button-outline" href="/our-service/how-we-help">What happens in a visit?</Link></div>
+          <div className="hero-grade-links"><span>Support for</span><Link href="/our-service/how-we-help#grade69">Grade 6–9</Link><Link href="/our-service/how-we-help#ol">GCE O/L</Link><Link href="/our-service/how-we-help#al">GCE A/L</Link></div>
+          <p className="hero-availability">Tell us your area, subjects and preferred study times.</p>
         </div>
-
-        {/* Main CTA buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-3 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-          <a
-            href={WA_LINKS.general}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary text-base sm:text-lg w-full sm:w-auto justify-center flex items-center gap-2 py-3 sm:py-3"
-          >
-            <WhatsAppIcon size={18} />
-            Book via WhatsApp
-          </a>
-          <Link href="/our-service" className="btn-secondary text-base sm:text-lg w-full sm:w-auto justify-center flex items-center py-3 sm:py-3">
-            How It Works
-          </Link>
-        </div>
-
-        {/* ── Ticker Strip ── */}
-        <div className="mt-8 w-full overflow-hidden relative animate-slide-up" style={{ animationDelay: "0.35s" }}>
-          <div className="absolute left-0 top-0 h-full w-10 sm:w-20 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, var(--color-background), transparent)" }} />
-          <div className="absolute right-0 top-0 h-full w-10 sm:w-20 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, var(--color-background), transparent)" }} />
-          <div className="ticker-track animate-ticker">
-            {allTickers.map((item, i) => (
-              <span
-                key={i}
-                className="inline-flex items-center gap-2 mx-2 sm:mx-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap border"
-                style={{ borderColor: "hsl(243 75% 60% / 0.25)", background: "hsl(243 75% 60% / 0.07)", color: "hsl(243 75% 55%)" }}
-              >
-                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "hsl(243 75% 60%)", display: "inline-block", flexShrink: 0 }} />
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Core Concept - Position 2 ── */}
-      <section className="w-full relative z-10 animate-fade-in" style={{ animationDelay: "0.22s" }}>
-        <div className="bg-muted/30 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 border text-center max-w-4xl mx-auto">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-3">
-            They Learn At Tuition.{" "}
-            <span className="text-gradient-warm">We Ensure They Study At Home.</span>
-          </h2>
-          <p className="text-muted-foreground font-medium text-sm md:text-lg leading-relaxed max-w-2xl mx-auto mb-5">
-            The biggest gap in education isn&apos;t teaching - it&apos;s execution. Your child learns the syllabus at school and tuition, but memorizing and practicing must happen at home. Without proper focus, they waste hours on their phone or give up too early.
-          </p>
-          {/* Solution pill - bold and scannable */}
-          <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-background border shadow-sm font-bold text-xs sm:text-sm text-left">
-            <span className="text-primary text-lg flex-shrink-0">💡</span>
-            <span>A trained Guide visits your home and keeps them focused while they study.</span>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Trust Pills ── */}
-      <section className="w-full relative z-10 animate-fade-in mt-6 sm:mt-10 mb-8 sm:mb-16" style={{ animationDelay: "0.25s" }}>
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 max-w-3xl mx-auto px-2 sm:px-0">
-          {[
-            { title: "100% Home Visit", icon: "🏠" },
-            { title: "Undergraduate Guides", icon: "🎓" },
-            { title: "Daily Parent Updates", icon: "💬" },
-            { title: "Grade 6 to A/L", icon: "📚" },
-          ].map((item, i) => (
-            <div 
-              key={i} 
-              className="flex items-center gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-full bg-background/60 backdrop-blur-md border border-border shadow-sm transition-all hover:bg-background hover:shadow-md cursor-default"
-            >
-              <span className="text-base sm:text-lg">{item.icon}</span>
-              <span className="text-[11px] sm:text-sm font-bold text-foreground tracking-tight">{item.title}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-
-
-      {/* ── The PathwayLK Difference ── */}
-      <section className="w-full relative z-10 animate-fade-in" style={{ animationDelay: "0.35s" }}>
-        <div className="text-center mb-6 sm:mb-10">
-          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "hsl(243 75% 60%)" }}>
-            The Difference
-          </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
-            Why Parents Choose <span className="text-gradient">PathwayLK</span>
-          </h2>
-        </div>
-
-        <div className="max-w-2xl mx-auto flex flex-col gap-3">
-          {[
-            { title: "Execution Over Theory", desc: "We ensure they actually sit down and study the material." },
-            { title: "1-on-1 Focus At Home", desc: "Complete attention right at their own desk. Safe and effective." },
-            { title: "Enforced Discipline", desc: "No phone checking, no distractions, no giving up early." },
-            { title: "Total Transparency", desc: "A direct discussion with you after every single session to track progress." },
-          ].map((item, i) => (
-            <div key={i} className="flex items-center gap-4 p-4 rounded-2xl border bg-background/50">
-              <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "hsl(38 95% 50% / 0.15)", color: "hsl(38 95% 45%)" }}>
-                <CheckIcon />
-              </div>
-              <div>
-                <h3 className="text-sm font-bold text-foreground">{item.title}</h3>
-                <p className="text-xs text-muted-foreground font-medium">{item.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── CTA Section - Grade-Specific ── */}
-      <section className="w-full relative z-10 animate-fade-in text-center pb-20 md:pb-0" style={{ animationDelay: "0.5s" }}>
-        <div
-          className="relative overflow-hidden rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-16"
-          style={{
-            background: "linear-gradient(135deg, hsl(38 95% 50% / 0.12) 0%, hsl(22 90% 52% / 0.08) 100%)",
-            boxShadow: "0 0 0 1px hsl(38 95% 50% / 0.2)",
-          }}
-        >
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 100%, hsl(38 95% 50% / 0.12), transparent 70%)" }} />
-          <div className="relative z-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2 text-foreground tracking-tight">
-              Ready To Give Your Child{" "}
-              <span className="text-gradient">The Focus They Need?</span>
-            </h2>
-            <p className="text-sm text-muted-foreground font-medium mb-6 max-w-lg mx-auto">
-              Message us on WhatsApp. We&apos;ll assign a Study Guide and your child&apos;s first session can begin within 3 days.
-            </p>
-
-            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 flex-wrap max-w-sm sm:max-w-none mx-auto">
-              <Link
-                href="/pricing"
-                className="btn-primary text-base px-8 py-3.5 inline-flex justify-center items-center gap-2 w-full sm:w-auto"
-              >
-                View Pricing & Plans <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/our-service"
-                className="btn-secondary text-base px-8 py-3.5 inline-flex justify-center items-center gap-2 w-full sm:w-auto"
-              >
-                See How It Works
-              </Link>
-            </div>
-          </div>
+        <div className="hero-visual">
+          <div className="visit-sticker"><House size={22} aria-hidden="true" /><div><span>WE COME TO YOU</span><strong>One guide. One student.</strong></div></div>
+          <div className="photo-frame"><img src="/study-visit.webp" alt="Illustrative home visit: a Study Guide sits beside a student as she completes mathematics exercises" width="1448" height="1086" fetchPriority="high" /></div>
+          <div className="study-sticker"><ClipboardCheck size={25} aria-hidden="true" /><div><strong>Their work. Our support.</strong><span>A plan for every study visit.</span></div></div>
+          <p className="image-caption">Illustrative image</p>
         </div>
       </section>
     </div>
-  );
+
+    <div className="service-strip"><div className="container service-strip-inner">
+      <div><span className="strip-icon"><House size={25} aria-hidden="true" /></span><div><strong>A guide visits your home</strong><span>Study support in your child’s own space.</span></div></div>
+      <div><span className="strip-icon"><Users size={25} aria-hidden="true" /></span><div><strong>They work beside your child</strong><span>Clear tasks, practice and encouragement.</span></div></div>
+      <div><span className="strip-icon"><MessageCircle size={25} aria-hidden="true" /></span><div><strong>You get a parent update</strong><span>Completed work, difficulties and next steps.</span></div></div>
+    </div></div>
+
+    <section className="container section">
+      <div className="section-heading heading-row"><div><p className="eyebrow">THE PART THAT HAPPENS AT HOME</p><h2>Tuition teaches the lesson.<br /><span className="headline-blue">We help put it into practice.</span></h2></div><p className="heading-aside">Notes need revising. Questions need attempting. A Study Guide helps your child follow through.</p></div>
+      <div className="learning-grid">{sessionModes.map(({ icon: Icon, number, title, text, tag, className }) => <article className={"learning-card " + className} key={number}><div className="learning-card-top"><span className="learning-icon"><Icon size={29} aria-hidden="true" /></span><span className="learning-number">{number}</span></div><span className="small-label">{tag}</span><h3>{title}</h3><p>{text}</p><Link className="card-link" href="/our-service/how-we-help">Explore this support</Link></article>)}</div>
+      <p className="center-note">Grade 6–9 and O/L visits can combine these modes. A/L support focuses on study planning and accountability.</p>
+    </section>
+
+    <section className="session-section"><div className="container section">
+      <div className="section-heading heading-row"><div><p className="eyebrow">A VISIT WITH A PURPOSE</p><h2>Here’s what happens<br /><span className="headline-blue">when we sit down together.</span></h2></div><Link className="button button-outline" href="/our-service/how-we-help">See a sample 2-hour visit</Link></div>
+      <div className="visit-steps">{[
+        { icon: CalendarDays, title: "Make a small plan", text: "Agree on the subject, the tasks and a realistic target for the visit.", label: "PLAN" },
+        { icon: BookOpen, title: "Work, then review", text: "Use focused work blocks, planned breaks and time to review mistakes.", label: "PRACTISE" },
+        { icon: MessageCircle, title: "Keep you in the loop", text: "Discuss what was completed, what was difficult and what comes next.", label: "UPDATE" },
+      ].map(({ icon: Icon, title, text, label }, i) => <article className="visit-step" key={title}><span className="visit-step-number">{i + 1}</span><Icon size={27} aria-hidden="true" /><span className="small-label">{label}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+    </div></section>
+
+    <section className="container section parent-section">
+      <div className="parent-photo-column"><p className="eyebrow">LESS GUESSING. MORE UNDERSTANDING.</p><h2>See what happened.<br /><span className="headline-blue">Know what’s next.</span></h2><p className="section-intro">After each visit, the guide discusses your child’s work with you. A weekly review helps you follow the routine and adjust the plan.</p><figure className="parent-photo"><img src="/parent-update.webp" alt="Illustrative scene of a parent and Study Guide discussing the work after a home study visit" width="1536" height="1024" loading="lazy" /><figcaption>Illustrative image</figcaption></figure></div>
+      <div className="parent-report-column"><span className="example-label">WHAT A USEFUL UPDATE CAN LOOK LIKE</span><SampleReport /><div className="parent-takeaway"><Check size={19} aria-hidden="true" /><p>Progress means completed work and clearer next steps—not just time spent at a desk.</p></div></div>
+    </section>
+
+    <section className="plans-section"><div className="container section"><SectionHeading eyebrow="CHOOSE YOUR STARTING POINT" title="A regular rhythm. A clear weekly price.">One-to-one home visits, with a schedule suited to your child’s stage.</SectionHeading><PlanCards brief /><p className="center-note">Need a lighter schedule? Ask about fewer visits and an introductory session.</p><div className="center-action"><Link className="text-link" href="/pricing">Compare everything included</Link></div></div></section>
+
+    <section className="container section"><div className="two-column faq-section"><div><p className="eyebrow">LET’S CLEAR THINGS UP</p><h2>A good fit starts<br /><span className="headline-blue">with good questions.</span></h2><p className="section-intro">Confirm the subjects, language, location and guide match before booking.</p><div className="little-note"><House size={24} aria-hidden="true" /><p>Your child studies at home. We bring the structure and support.</p></div></div><FAQ /></div></section><CTA />
+  </>;
 }
