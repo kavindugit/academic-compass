@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, BookOpen, Check, Clock3, MessageCircle, CalendarDays, ClipboardCheck, Target } from "lucide-react";
 import { PLANS } from "@/shared";
 
@@ -82,5 +83,5 @@ export function FAQ({ pricing = false }: { pricing?: boolean }) {
 }
 
 export function Footer() {
-  return <footer className="site-footer"><div className="container footer-grid"><div><Link className="brand" href="/"><span className="brand-mark"><img src="/icon.png" alt="" width={21} height={21} /></span><span>Pathway<span className="brand-lk">LK</span></span></Link><p>One-to-one home study guidance for Grade 6–9, O/L and A/L students in Sri Lanka.</p></div><div><span className="small-label">SERVICE INFORMATION</span><Link href="/our-service">Our service</Link><Link href="/our-service/how-we-help">Session activities</Link><Link href="/pricing">Prices and schedules</Link></div><div><span className="small-label">CONTACT PATHWAYLK</span><a href={whatsapp("Hi PathwayLK, I would like to know more about your home study guidance.")} target="_blank" rel="noopener noreferrer">WhatsApp · 070 440 1729</a><p>Contact us to check your area, subjects and preferred session times.</p></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} PathwayLK</span><span>Home study guidance · Sri Lanka</span></div></footer>;
+  return <footer className="site-footer"><div className="container footer-grid"><div><Link className="brand" href="/"><span className="brand-mark"><Image src="/icon.png" alt="" width={21} height={21} /></span><span>Pathway<span className="brand-lk">LK</span></span></Link><p>One-to-one home study guidance for Grade 6–9, O/L and A/L students in Sri Lanka.</p></div><div><span className="small-label">SERVICE INFORMATION</span><Link href="/our-service">Our service</Link><Link href="/our-service/how-we-help">Session activities</Link><Link href="/pricing">Prices and schedules</Link></div><div><span className="small-label">CONTACT PATHWAYLK</span><a href={whatsapp("Hi PathwayLK, I would like to know more about your home study guidance.")} target="_blank" rel="noopener noreferrer">WhatsApp · 070 440 1729</a><p>Contact us to check your area, subjects and preferred session times.</p></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} PathwayLK</span><span>Home study guidance · Sri Lanka</span></div></footer>;
 }
