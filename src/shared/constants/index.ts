@@ -2,7 +2,7 @@ export const PLANS = [
   {
     id: 'grade-6-9',
     name: 'Grade 6 - 9',
-    price: 5000,
+    price: 3000,
     features: [
       '3 Sessions per week',
       '2 Hours per session',
@@ -16,7 +16,7 @@ export const PLANS = [
   {
     id: 'ol',
     name: 'GCE O/L',
-    price: 8000,
+    price: 6000,
     features: [
       '3 Sessions per week',
       '3 Hours per session',
@@ -30,10 +30,10 @@ export const PLANS = [
   {
     id: 'al',
     name: 'GCE A/L',
-    price: 20000,
+    price: 18000,
     features: [
       '4 Sessions per week',
-      '6 Hours per session',
+      '5 Hours per session',
       'Structured study blocks with planned breaks',
       'Strategic daily study planning',
       'Motivation & accountability coaching',
